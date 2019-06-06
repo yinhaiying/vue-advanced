@@ -1,6 +1,8 @@
 <template>
   <div class="container">
-    <Child :name = name :age = age></Child>
+    <Child @onClick = 'handleClick' :age = age :type = type>
+      <div>这是通过slot插入的一段话</div>
+    </Child>
   </div>
 </template>
 
@@ -10,12 +12,18 @@ export default {
   name:'Parent',
   data() {
     return {
-      name:'刘亦菲',
-      age:24
+      name:'hello',
+      age:24,
+      type:'success'
     }
   },
   components: {
     Child
+  },
+  methods:{
+    handleClick(value){
+      alert(value)
+    }
   }
 }
 </script>
